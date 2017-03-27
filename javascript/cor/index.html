@@ -1,0 +1,30 @@
+<html ng-app="app">
+	<head>
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body ng-controller="IndexController">
+		<form name="corForm" ng-submit="salvaCor(cor)" novalidate>
+			<input type="text" name="idCor" ng-model="cor.id" required>
+			<input type="text" name="nomeCor" ng-model="cor.nome" required>
+			<button type="submit">Salvar</button>
+		</form>
+		<ul>
+			<li ng-repeat="c in cores">
+				<label>id: </label>
+				<label>{{c.id}}</label>
+				<label>nome: </label>
+				<label>{{c.nome}}</label>
+				<button ng-click="alterarCor(c)">Alterar</button>
+				<button ng-click="excluirCor(c)">Excluir</button>
+			</li>
+			<li>
+				<label ng-show="corForm.idCor.$valid">id: </label>
+				<label>{{cor.id}}</label>
+				<label ng-show="corForm.nomeCor.$valid">nome: </label>
+				<label>{{cor.nome}}</label>
+			</li>
+		</ul>
+	</body>
+</html>
